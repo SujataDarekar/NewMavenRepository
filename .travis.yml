@@ -8,6 +8,7 @@ os: Windows10
 services:
  - docker
 
+before_script: cd /home/travis/build/SujataDarekar/NewMavenRepository/Source/bw6-maven-plugin
 script:
  - mvn compile
  - mvn package
