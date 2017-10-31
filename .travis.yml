@@ -13,6 +13,7 @@ before_script: cd /home/travis/build/SujataDarekar/NewMavenRepository/Source/bw6
 script:
  - mvn compile
  - mvn package
+ - mvn install
  - mvn "com.tibco.plugins:bw6-maven-plugin:Demo"
  
 deploy:
