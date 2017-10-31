@@ -8,6 +8,7 @@ os: Windows10
 services:
  - docker
 
+ 
 script:
  - mvn compile
  - mvn package
