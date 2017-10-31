@@ -10,9 +10,9 @@ services:
 - docker
 
 
-#script:
- #- mvn compile
- #- mvn package
+script:
+ - mvn compile
+ - mvn package
   
 #deploy:
  # provider: releases
