@@ -44,7 +44,6 @@ public class DemoPlugin extends AbstractMojo{
 			 getLog().info("/*****************unzip Function******************/");  
 			 File sourceFile = new File(zipFilePath);
 		        File destDir = new File(destDirectory);
-		       
 		        if (!destDir.exists()) {
 		        	getLog().info("/*****************destDir.mkdir() Function******************/");
 		            destDir.mkdir();
