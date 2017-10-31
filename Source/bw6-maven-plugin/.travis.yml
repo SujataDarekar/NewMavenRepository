@@ -2,7 +2,7 @@ language:
    - java
    
 version: 1.7
-sudo: false
+#sudo: false
 os: Windows10
 
 services:
