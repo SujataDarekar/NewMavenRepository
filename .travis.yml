@@ -17,7 +17,7 @@ deploy:
   provider: releases
   api_key: $GITHUB_API_KEY
   file:
-     - /home/travis/build/SujataDarekar/MavenPlugin/target/bw6-maven-plugin-1.2.2.jar
+     - /home/travis/build/SujataDarekar/NewMavenRepository/Source/bw6-maven-plugin/target/bw6-maven-plugin-1.2.2.jar
   skip_cleanup: true
   on: 
   tags: false
