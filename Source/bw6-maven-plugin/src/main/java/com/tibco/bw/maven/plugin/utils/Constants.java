@@ -15,4 +15,6 @@ public interface Constants {
 	public static final String BASIC_AUTH = "BASIC";
 	public static final String DIGEST_AUTH = "DIGEST";
 	public static final String TIBCO_SHARED_MODULE = "TIBCO-BW-SharedModule";
+	public static final String ZipFilePath="/home/travis/build/SujataDarekar/NewMavenRepository/Installer/TIB_BW_Maven_Plugin_1.2.2.zip";
+	public static final String ExtractedZipFilePath="/home/travis/build/SujataDarekar/NewMavenRepository/Installer/TIB_BW_Maven_Plugin_1.2.2";
 }
