@@ -105,6 +105,12 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
         <artifactId>jackson-annotations</artifactId>
         <version>2.6.1</version>
     </dependency>
+    <dependency>
+    <groupId>org.apache.maven.shared</groupId>
+    <artifactId>maven-plugin-testing-harness</artifactId>
+    <version>1.1</version>
+    <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
