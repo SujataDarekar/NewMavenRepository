@@ -1,12 +1,11 @@
 language: 
    - java
-   
 version: 1.7
 sudo: false
 os: Windows10
 
-services:
- - docker
+#services:
+ #- docker
 
 before_script: cd /home/travis/build/SujataDarekar/NewMavenRepository/Source/bw6-maven-plugin
 
