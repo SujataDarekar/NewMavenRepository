@@ -213,6 +213,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
   <plugin>
       <groupId>org.apache.maven.plugins</groupId>
       <artifactId>maven-gpg-plugin</artifactId>
+      <version>1.6</version>
       <executions>
           <execution>
               <id>sign-artifacts</id>
@@ -220,6 +221,12 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
               <goals>
                   <goal>sign</goal>
               </goals>
+              <configuration>
+ 							<configuration>
+ 							<keyname>A64DD9464F66BBC4AE5B0B9BA755F8C8FFFCBF74</keyname>
+ 							<passphraseServerId>Sujata123#</passphraseServerId>
+ 						</configuration>
+ 					</configuration>
           </execution>
       </executions>
   </plugin>
