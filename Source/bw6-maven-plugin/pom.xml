@@ -12,7 +12,26 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     Plugin Code for Apache Maven and TIBCO BusinessWorks™.
     This is the Maven Plugin for BW6 and BWCE Build. 
   </description>
-
+   <url>https://github.com/SujataDarekar/NewMavenRepository</url>
+   <licenses>
+  <license>
+    <name>The Apache License, Version 2.0</name>
+    <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+  </license>
+</licenses>
+<developers>
+    <developer>
+      <name>Sujata</name>
+      <email>sdarekar@tibco.com</email>
+      <organization>Sonatype</organization>
+      <organizationUrl>http://www.sonatype.com</organizationUrl>
+    </developer>
+  </developers>
+  <scm>
+  <connection>scm:git:git://github.com/SujataDarekar/NewMavenRepository</connection>
+  <developerConnection>scm:git:ssh://github.com:SujataDarekar/NewMavenRepository.git</developerConnection>
+  <url>http://github.com/SujataDarekar/NewMavenRepository</url>
+</scm>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
@@ -112,21 +131,70 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <scope>test</scope>
     </dependency>
   </dependencies>
-  <parent>
-  <groupId>org.sonatype.oss</groupId>
-  <artifactId>oss-parent</artifactId>
-  <version>7</version>
-</parent>
 <distributionManagement>
+  <snapshotRepository>
+    <id>ossrh</id>
+    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+  </snapshotRepository>
   <repository>
-  	  <id>nexus-releases</id>
-      <name>Nexus Release Repository</name>
-      <url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    <id>ossrh</id>
+    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
   </repository>
 </distributionManagement>
-
   <build>
     <plugins>
+    
+     <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-source-plugin</artifactId>
+      <version>2.2.1</version>
+      <executions>
+        <execution>
+          <id>attach-sources</id>
+          <goals>
+            <goal>jar-no-fork</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-javadoc-plugin</artifactId>
+      <version>2.9.1</version>
+      <executions>
+        <execution>
+          <id>attach-javadocs</id>
+          <goals>
+            <goal>jar</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-gpg-plugin</artifactId>
+      <version>1.5</version>
+      <executions>
+        <execution>
+          <id>sign-artifacts</id>
+          <phase>verify</phase>
+          <goals>
+            <goal>sign</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+    <plugin>
+  <groupId>org.sonatype.plugins</groupId>
+  <artifactId>nexus-staging-maven-plugin</artifactId>
+  <version>1.6.7</version>
+  <extensions>true</extensions>
+  <configuration>
+     <serverId>ossrh</serverId>
+     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+     <autoReleaseAfterClose>true</autoReleaseAfterClose>
+  </configuration>
+</plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-plugin-plugin</artifactId>
@@ -160,76 +228,6 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
           <target>1.7</target>
         </configuration>
       </plugin>
-      <plugin>
-      <artifactId>maven-assembly-plugin</artifactId>
-      <version>2.3</version>
-      <configuration>
-          <descriptorRefs>
-              <descriptorRef>jar-with-dependencies</descriptorRef>
-          </descriptorRefs>
-      </configuration>
-      <executions>
-          <execution>
-              <phase>package</phase>
-              <goals>
-                  <goal>single</goal>
-              </goals>
-          </execution>
-      </executions>
-  </plugin>
-  <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-source-plugin</artifactId>
-      <version>2.1.2</version>
-      <executions>
-          <execution>
-              <id>attach-sources</id>
-              <goals>
-                  <goal>jar</goal>
-              </goals>
-          </execution>
-      </executions>
-  </plugin>
-  <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-javadoc-plugin</artifactId>
-      <configuration>
-          <quiet>true</quiet>
-          <nonavbar>true</nonavbar>
-          <notree>true</notree>
-          <nocomment>true</nocomment>
-          <nohelp>true</nohelp>
-
-      </configuration>
-      <executions>
-          <execution>
-              <id>attach-javadocs</id>
-              <goals>
-                  <goal>jar</goal>
-              </goals>
-          </execution>
-      </executions>
-  </plugin>
-  <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-gpg-plugin</artifactId>
-      <version>1.6</version>
-      <executions>
-          <execution>
-              <id>sign-artifacts</id>
-              <phase>verify</phase>
-              <goals>
-                  <goal>sign</goal>
-              </goals>
-              <configuration>
- 							<configuration>
- 							<keyname>A64DD9464F66BBC4AE5B0B9BA755F8C8FFFCBF74</keyname>
- 							<passphraseServerId>Sujata123#</passphraseServerId>
- 						</configuration>
- 					</configuration>
-          </execution>
-      </executions>
-  </plugin>
     </plugins>
     <pluginManagement>
     	<plugins>
