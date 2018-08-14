@@ -10,6 +10,7 @@ services:
 before_script: cd /home/travis/build/SujataDarekar/NewMavenRepository/Source/bw6-maven-plugin
 
 script:
+ - mvn clean
  - mvn compile
  - mvn package
  - mvn install
