@@ -186,9 +186,7 @@ public class BWExecutionListener extends AbstractExecutionListener {
         }
     }
 
-    /**
-     * <pre>>>> mojo-artifactId:version:goal (mojo-executionId) @ project-artifactId >>></pre>
-     */
+   
     @Override
     public void forkStarted(ExecutionEvent event) {
         if (logger.isInfoEnabled()) {
