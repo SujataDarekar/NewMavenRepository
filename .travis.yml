@@ -1,11 +1,12 @@
 language: 
-   - java
-version: 1.8
-sudo: false
-os: Windows10
+    - java
+jdk:
+  - oraclejdk8
+#sudo: false
+#os: Windows10
 
-services:
- - docker
+#services:
+ #- docker
 
 before_script: cd /home/travis/build/SujataDarekar/NewMavenRepository/Source/bw6-maven-plugin
 
