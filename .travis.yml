@@ -1,6 +1,6 @@
 language: 
    - java
-version: 1.7
+version: 1.8
 sudo: false
 os: Windows10
 
