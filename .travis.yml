@@ -14,14 +14,14 @@ script:
  - mvn compile
  - mvn package
  - mvn install
- - mvn "com.tibco.plugins:bw6-maven-plugin:Demo"
+ 
  
 deploy:
   provider: releases
   api_key: $GITHUB_API_KEY
   file:
      - /home/travis/build/SujataDarekar/NewMavenRepository/Source/bw6-maven-plugin/target/bw6-maven-plugin-1.2.2.jar
-     - /home/travis/build/SujataDarekar/NewMavenRepository/Installer/TIB_BW_Maven_Plugin_1.2.2.zip
+   #  - /home/travis/build/SujataDarekar/NewMavenRepository/Installer/TIB_BW_Maven_Plugin_1.2.2.zip
   skip_cleanup: true
   on: 
  # tags: true
